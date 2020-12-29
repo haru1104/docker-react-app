@@ -1,0 +1,17 @@
+sudo: required
+
+language: generic
+
+services:
+  - dockerfile
+
+before_install:
+  - echo "start Creating an image with dockerfile"
+  - docker build -t suiioop/docker-react-app -f dockerfile.dve .
+
+script:
+  - docker run -e CI=true suiioop/docker-react-app npm test -- --coverage
+
+after_success:
+ - echo "test Success"
+ 
