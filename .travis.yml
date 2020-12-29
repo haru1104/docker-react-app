@@ -7,7 +7,7 @@ services:
 
 before_install:
   - echo "start Creating an image with dockerfile"
-  - docker build -t suiioop/docker-react-app -f dockerfile.dev .
+  - docker build -t suiioop/docker-react-app -f Dockerfile.dev .
 
 script:
   - docker run -e CI=true suiioop/docker-react-app npm test -- --coverage
