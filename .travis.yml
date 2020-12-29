@@ -3,7 +3,7 @@ sudo: required
 language: generic
 
 services:
-  - dockerfile
+  - docker
 
 before_install:
   - echo "start Creating an image with dockerfile"
@@ -11,6 +11,8 @@ before_install:
 
 script:
   - docker run -e CI=true suiioop/docker-react-app npm run test -- --coverage
+
 after_success:
  - echo "test Success"
+
 
